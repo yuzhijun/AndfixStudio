@@ -1,0 +1,69 @@
+apply plugin: 'com.android.model.library'
+
+model {
+    android {
+        compileSdkVersion = 23
+        buildToolsVersion = "23.0.2"
+        defaultPublishConfig = "allDebug"
+
+        defaultConfig.with {
+            minSdkVersion.apiLevel = 15
+            targetSdkVersion.apiLevel = 23
+            versionCode = 1
+            versionName = "0.0.1"
+        }
+    }
+
+    android.ndk {
+        moduleName = "andfix"
+        platformVersion = 9
+        stl = "gnustl_static"
+        ldLibs.addAll(["log"])
+        cppFlags.add("-std=gnu++11")
+        cppFlags.add("-fpermissive")
+        cppFlags.add("-DDEBUG")
+        cppFlags.add("-O0")
+        abiFilters.addAll(["armeabi", "x86"])
+//        CFlags.add("-std=c99")
+    }
+
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles.add(file('proguard-rules.txt'))
+        }
+    }
+
+    android.productFlavors {
+        // for detailed abiFilter descriptions, refer to "Supported ABIs" @
+        // https://developer.android.com/ndk/guides/abis.html#sa
+        create("arm") {
+            ndk.abiFilters.add("armeabi")
+        }
+        create("arm7") {
+            ndk.abiFilters.add("armeabi-v7a")
+        }
+        create("arm8") {
+            ndk.abiFilters.add("arm64-v8a")
+        }
+        create("x86") {
+            ndk.abiFilters.add("x86")
+        }
+        create("x86-64") {
+            ndk.abiFilters.add("x86_64")
+        }
+        create("mips") {
+            ndk.abiFilters.add("mips")
+        }
+        create("mips-64") {
+            ndk.abiFilters.add("mips64")
+        }
+        // To include all cpu architectures, leaves abiFilters empty
+        create("all")
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
