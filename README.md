@@ -5,6 +5,7 @@
 ---
 ### 2016年4月6日
 - 添加demo
+- 添加patch脚本
 
 
 
@@ -12,7 +13,7 @@
 ---
 生成patch命令：
 
-	在tools目录下运行`python patch.py`, 即可在生成out.apatch文件
+	在tools目录下运行 python patch.py, 即可在生成out.apatch文件
 
 
 
