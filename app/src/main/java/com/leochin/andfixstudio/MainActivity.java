@@ -28,6 +28,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showToast(View v) {
-        A.showToast(this);
+        new A().showToast(this);
     }
 }

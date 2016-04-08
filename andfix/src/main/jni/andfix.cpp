@@ -112,6 +112,8 @@ static int registerNatives(JNIEnv* env) {
  * Returns the JNI version on success, -1 on failure.
  */
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
+	LOGD("andfix.cpp JNI_OnLoad");
+
 	JNIEnv* env = NULL;
 	jint result = -1;
 
@@ -126,6 +128,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
 	/* success -- return valid version number */
 	result = JNI_VERSION_1_4;
 
+    LOGD("JNI_OnLoad Success result = 0x000%x", result);
 	return result;
 }
 

@@ -35,6 +35,7 @@ public class AndFix {
 	static {
 		try {
 			Runtime.getRuntime().loadLibrary("andfix");
+			Log.d(TAG, "loadlibrary libandfix.so");
 		} catch (Throwable e) {
 			Log.e(TAG, "loadLibrary", e);
 		}
