@@ -31,7 +31,7 @@ import android.widget.Toast;
 public class A {
 
 	public void showToast(Context context) {
-//		Toast.makeText(context, "fix error", Toast.LENGTH_SHORT).show();
-		Toast.makeText(context, "fix success", Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, "fix error", Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context, "fix success", Toast.LENGTH_SHORT).show();
 	}
 }
